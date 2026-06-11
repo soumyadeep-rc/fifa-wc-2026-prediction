@@ -298,27 +298,27 @@ st.markdown("""
 # SIDEBAR — MATCH CENTER
 # ==========================================
 with st.sidebar:
-    st.markdown("### ⚽ Match Center")
+    st.markdown("### Match Center")
     st.markdown("---")
-    st.markdown("**🏟️ Tournament:** 2026 FIFA World Cup")
-    st.markdown("**🌎 Hosts:** USA 🇺🇸 · Mexico 🇲🇽 · Canada 🇨🇦")
-    st.markdown("**👥 Field Size:** 48 Nations")
+    st.markdown("Tournament: 2026 FIFA World Cup")
+    st.markdown("Hosts: USA 🇺🇸 · Mexico 🇲🇽 · Canada 🇨🇦")
+    st.markdown("Field Size: 48 Nations")
     st.markdown("---")
-    st.markdown("#### 🧭 Navigation Guide")
-    st.markdown("- **The AI Engine** — methodology & model internals")
-    st.markdown("- **Team Journeys** — squad-by-squad scouting reports")
-    st.markdown("- **The Alpha Bracket** — full knockout projection")
+    st.markdown("#### Navigation Guide")
+    st.markdown("- The AI Engine — methodology & model internals")
+    st.markdown("- Team Journeys — squad-by-squad scouting reports")
+    st.markdown("- The Alpha Bracket — full knockout projection")
     st.markdown("---")
-    st.caption("⚠️ Model outputs are probabilistic projections, not guarantees. Football is a game of fine margins. ⚽")
+    st.caption(" Model outputs are probabilistic projections, not guarantees. Football is a game of fine margins.")
 
 # ==========================================
 # MAIN INTERFACE HEADER — KICKOFF BANNER
 # ==========================================
 st.markdown("""
     <div class="pitch-banner">
-        <div class="kickoff-badge">⚽ LIVE PREDICTIVE MODEL ⚽</div>
+        <div class="kickoff-badge"> LIVE PREDICTIVE MODEL </div>
         <div class="hero-title">2026 FIFA World Cup</div>
-        <div class="hero-subtitle">🏆 Predictive Analytics Engine 🏆</div>
+        <div class="hero-subtitle"> Predictive Analytics Engine </div>
         <p class="hero-tagline">Machine Learning Simulation Pipeline Mapping Roster Efficiency, Travel Exhaustion, and Micro-Climate Physics.</p>
         <div class="host-flags">🇺🇸 &nbsp;·&nbsp; 🇲🇽 &nbsp;·&nbsp; 🇨🇦 &nbsp; — A NORTH AMERICAN SUMMER TOURNAMENT</div>
     </div>
