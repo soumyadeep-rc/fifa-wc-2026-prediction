@@ -109,8 +109,7 @@ The model severely penalized Brazil due to real-world structural collapses in re
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/<your-username>/2026-world-cup-predictive-ai.git
-   cd 2026-world-cup-predictive-ai
+   git clone https://github.com/soumyadeep-rc/fifa-wc-2026-prediction.git
    ```
 
 2. **Create a virtual environment** (recommended)
