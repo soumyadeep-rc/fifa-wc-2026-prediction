@@ -326,40 +326,40 @@ st.markdown("""
 
 # Initialize Navigation Tab Infrastructure
 tab_engine, tab_journeys, tab_bracket = st.tabs([
-    "⚙️ The AI Engine",
-    "🧭 Team Journeys",
-    "🏆 The Alpha Bracket"
+    " The AI Engine",
+    " Team Journeys",
+    " The Alpha Bracket"
 ])
 
 # ==========================================
 # METHODOLOGY LAYER
 # ==========================================
 with tab_engine:
-    st.header("⚙️ Algorithmic Methodology")
+    st.header(" Algorithmic Methodology")
     st.write("This structural pipeline evaluates physical tournament factors, adjusting baseline Elo configurations using localized environmental variables to generate raw advancement vectors.")
 
     metric_col1, metric_col2, metric_col3, metric_col4 = st.columns(4)
-    metric_col1.metric("📊 Historical Matches Checked", "50,000+")
-    metric_col2.metric("🎲 Monte Carlo Replications", "1,000")
-    metric_col3.metric("🌍 Modeled Competitors", "48")
-    metric_col4.metric("🌡️ Environmental Array", "Active")
+    metric_col1.metric(" Historical Matches Checked", "50,000+")
+    metric_col2.metric(" Monte Carlo Replications", "1,000")
+    metric_col3.metric(" Modeled Competitors", "48")
+    metric_col4.metric(" Environmental Array", "Active")
 
     st.write("")
-    st.markdown("### 🛠️ Operational Feature Engineering")
+    st.markdown("###  Operational Feature Engineering")
 
-    with st.expander("✈️ Physical Exhaustion Index", expanded=True):
+    with st.expander(" Physical Exhaustion Index", expanded=True):
         st.write("""
         **Mechanic:** Quantifies cross-continental aviation vectors and absolute recovery increments between matchdays.
         **Impact:** Teams crossing multiple time zones on compressed schedules face clear performance penalties in late-game expected goal calculations compared to stationary rivals.
         """)
 
-    with st.expander("⛰️ Micro-Climate & Altitude Array"):
+    with st.expander(" Micro-Climate & Altitude Array"):
         st.write("""
         **Mechanic:** Factors geographic stadium elevation profiles directly into player stamina depletion layers.
         **Impact:** Teams unaccustomed to playing at high elevations show decreased late-stage efficiency, while host squads receive localized adaptation multipliers.
         """)
 
-    with st.expander("📈 Opponent-Adjusted Momentum Metrics"):
+    with st.expander(" Opponent-Adjusted Momentum Metrics"):
         st.write("""
         **Mechanic:** Processes trailing historical score lines using exponentially decayed moving averages adjusted for opponent strength.
         **Impact:** High-margin scorelines against elite competitors yield top-tier ratings. Victories over lower-tier teams are discounted to prevent ranking inflation.
@@ -369,7 +369,7 @@ with tab_engine:
 # DETAILED TEAM COMPENDIUM (TOP 15 + GERMANY)
 # ==========================================
 with tab_journeys:
-    st.header("🧭 Team Analytics & Performance Portfolios")
+    st.header(" Team Analytics & Performance Portfolios")
     st.write("Squad-by-squad scouting dossiers, generated from the model's probability and tactical-form layers.")
 
     team_registry = {
@@ -455,7 +455,7 @@ with tab_journeys:
         "Paraguay": "team-paraguay"
     }
 
-    selection = st.selectbox("🔍 Select Team Profile Archive:", list(team_registry.keys()))
+    selection = st.selectbox(" Select Team Profile Archive:", list(team_registry.keys()))
     record = team_registry[selection]
     flag = team_flags.get(selection, "")
     css_class = team_color_class.get(selection, "team-argentine")
@@ -468,23 +468,23 @@ with tab_journeys:
     """, unsafe_allow_html=True)
 
     col_v1, col_v2 = st.columns(2)
-    col_v1.metric("🏆 Tournament Win Equity", record['win'])
-    col_v2.metric("🥈 Reach Final Equity", record['final'])
+    col_v1.metric(" Tournament Win Equity", record['win'])
+    col_v2.metric(" Reach Final Equity", record['final'])
 
-    st.markdown(f"**📋 Calculated Tactical Form:** {record['form']}")
-    st.markdown(f"**🗺️ Projected Bracket Paths:** {record['rivals']}")
+    st.markdown(f"** Calculated Tactical Form:** {record['form']}")
+    st.markdown(f"** Projected Bracket Paths:** {record['rivals']}")
     st.write("")
-    st.info(f"📰 {record['story']}")
+    st.info(f" {record['story']}")
 
 # ==========================================
 # TAB 3: THE NATIVE STREAMLIT BRACKET
 # ==========================================
 with tab_bracket:
-    st.header("🏆 The Consensus Tournament Timeline")
+    st.header(" The Consensus Tournament Timeline")
     st.write("Deterministic progression matrix built entirely with native Streamlit data tables to ensure zero rendering errors and maximum readability.")
     st.write("---")
 
-    st.subheader("🥅 Round of 32 (16 Matches)")
+    st.subheader(" Round of 32 (16 Matches)")
     st.markdown("""
     | Team A (Win Probability) | Team B (Win Probability) | Expected Winner |
     | :--- | :--- | :--- |
@@ -507,7 +507,7 @@ with tab_bracket:
     """)
 
     st.write("---")
-    st.subheader("🥅 Round of 16 (8 Matches)")
+    st.subheader(" Round of 16 (8 Matches)")
     st.markdown("""
     | Team A (Win Probability) | Team B (Win Probability) | Expected Winner |
     | :--- | :--- | :--- |
@@ -522,7 +522,7 @@ with tab_bracket:
     """)
 
     st.write("---")
-    st.subheader("🥅 Quarterfinals (4 Matches)")
+    st.subheader(" Quarterfinals (4 Matches)")
     st.markdown("""
     | Team A (Win Probability) | Team B (Win Probability) | Expected Winner |
     | :--- | :--- | :--- |
@@ -533,7 +533,7 @@ with tab_bracket:
     """)
 
     st.write("---")
-    st.subheader("🥅 Semifinals (2 Matches)")
+    st.subheader(" Semifinals (2 Matches)")
     st.markdown("""
     | Team A (Win Probability) | Team B (Win Probability) | Expected Winner |
     | :--- | :--- | :--- |
@@ -542,7 +542,7 @@ with tab_bracket:
     """)
 
     st.write("---")
-    st.subheader("🥇 The Final (1 Match)")
+    st.subheader(" The Final (1 Match)")
     st.markdown("""
     | Team A (Win Probability) | Team B (Win Probability) | Expected Winner |
     | :--- | :--- | :--- |
@@ -562,7 +562,7 @@ with tab_bracket:
 # ==========================================
 st.markdown("""
     <div class="app-footer">
-        <div class="footer-line">⚽ System Core Framework built using Python and XGBoost Ensembles. ⚽</div>
+        <div class="footer-line"> System Core Framework built using Python and XGBoost Ensembles. </div>
         <div class="footer-copyright">Copyright <span class="highlight">Soumyadeep Roy Chowdhury</span> 2026. All rights reserved.</div>
     </div>
 """, unsafe_allow_html=True)
