@@ -1,4 +1,4 @@
-# 🏆 2026 FIFA World Cup Predictive AI
+# 2026 FIFA World Cup Predictive AI
 
 > A Stacked Machine Learning Pipeline mapping the physics, geography, and momentum of international football.
 
@@ -10,7 +10,7 @@
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
 - [Project Overview](#-project-overview)
 - [AI Architecture & Process](#-the-ai-architecture--process)
@@ -26,7 +26,7 @@
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 Most sports prediction models rely solely on historical team rankings (like FIFA or Elo ratings), failing to account for the brutal realities of tournament football. This project takes a completely different approach.
 
@@ -36,7 +36,7 @@ A companion **Streamlit dashboard** (`app.py`) presents the model's methodology,
 
 ---
 
-## 🧠 The AI Architecture & Process
+## The AI Architecture & Process
 
 The pipeline is broken down into three distinct operational layers:
 
@@ -64,37 +64,37 @@ Using the official 2026 World Cup Schedule, the script unleashes the trained AI 
 
 ---
 
-## ⚖️ Key Features Engineered (The Context)
+## Key Features Engineered (The Context)
 
 Feature importance analysis revealed that raw Elo differences only accounted for **48.5%** of the AI's decision-making. Over **51%** of the predictive power came from engineered contextual variables:
 
 | Feature | Description |
 | :--- | :--- |
-| 🛫 **Physical Exhaustion** (`Rest_Diff`) | The 2026 tournament spans an entire continent. Teams crossing multiple time zones on compressed schedules suffer severe, mathematically quantified penalties in late-game expected goal output. |
-| ⛰️ **Geographic Brutality** (`Altitude`) | Factors in stadium elevation (e.g., the 7,200 ft altitude of Estadio Azteca). European teams unaccustomed to thin air show decreased late-stage efficiency, while host nations receive adaptation multipliers. |
-| 🔥 **Tactical Momentum** (`Elite_Offense_Diff`) | Adjusts raw win streaks based on the Elo rating of the defeated opponent. |
+|  **Physical Exhaustion** (`Rest_Diff`) | The 2026 tournament spans an entire continent. Teams crossing multiple time zones on compressed schedules suffer severe, mathematically quantified penalties in late-game expected goal output. |
+|  **Geographic Brutality** (`Altitude`) | Factors in stadium elevation (e.g., the 7,200 ft altitude of Estadio Azteca). European teams unaccustomed to thin air show decreased late-stage efficiency, while host nations receive adaptation multipliers. |
+|  **Tactical Momentum** (`Elite_Offense_Diff`) | Adjusts raw win streaks based on the Elo rating of the defeated opponent. |
 
 ---
 
-## 🔮 Final Tournament Predictions
+##  Final Tournament Predictions
 
 By running the **Consensus Bracket Generator** (which disables random variance and forces the highest-probability Alpha timeline), the AI predicted the following outcomes:
 
-### 🥇 The Alpha Champion: ARGENTINA
+###  The Alpha Champion: ARGENTINA
 Argentina is projected to win back-to-back World Cups. While teams like Spain and England possess similar roster depth, Argentina's metrics show a historically flawless efficiency when converting Expected Goals against elite defensive blocks in high-leverage knockout matches.
 
-### 📊 The Multiverse Winner: SPAIN
+###  The Multiverse Winner: SPAIN
 In 1,000 randomized Monte Carlo simulations, Spain won the highest overall percentage of tournaments (**34.2%**). Their extreme possession-based system starves opponents of the ball, making them mathematically immune to random "fluke" upsets.
 
-### ⚠️ The Geographic Victim: GERMANY
+###  The Geographic Victim: GERMANY
 The model's most shocking discovery: Germany is mathematically trapped. Despite top-tier player metrics, their schedule projects a Round of 16 collision with host-nation Mexico. The AI calculated that playing at a massive altitude, against a host nation, on 24 hours less rest, is an insurmountable physical bottleneck. **Germany exits early.**
 
-### 📉 The Fallen Giant: BRAZIL
+###  The Fallen Giant: BRAZIL
 The model severely penalized Brazil due to real-world structural collapses in recent 2026 CONMEBOL qualifiers. **Projected to exit in the Quarterfinals against the highly organized Netherlands.**
 
 ---
 
-## 🚀 Tech Stack
+##  Tech Stack
 
 - **Python 3.10+**
 - **XGBoost** — Stacked Poisson Regressors + Multi-class Classifier
@@ -104,7 +104,7 @@ The model severely penalized Brazil due to real-world structural collapses in re
 
 ---
 
-## 📦 Installation
+##  Installation
 
 1. **Clone the repository**
 
@@ -127,7 +127,7 @@ The model severely penalized Brazil due to real-world structural collapses in re
 
 ---
 
-## ▶️ Usage
+##  Usage
 
 Launch the interactive Streamlit dashboard:
 
@@ -137,13 +137,13 @@ streamlit run app.py
 
 The dashboard includes three sections:
 
-- **⚙️ The AI Engine** — model methodology, feature engineering layers, and key statistics
-- **🧭 Team Journeys** — squad-by-squad scouting dossiers with win equity, tactical form, and projected bracket paths
-- **🏆 The Alpha Bracket** — full Round of 32 → Final knockout projection with the predicted champion
+- ** The AI Engine** — model methodology, feature engineering layers, and key statistics
+- ** Team Journeys** — squad-by-squad scouting dossiers with win equity, tactical form, and projected bracket paths
+- ** The Alpha Bracket** — full Round of 32 → Final knockout projection with the predicted champion
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 2026-world-cup-predictive-ai/
@@ -157,19 +157,19 @@ The dashboard includes three sections:
 
 ---
 
-## ⚠️ Disclaimer
+##  Disclaimer
 
 This project is built for **educational and analytical purposes**. All win probabilities and bracket outcomes are statistical projections generated by a machine learning model — football is a game of fine margins, and real-world results may (and often do) differ from model expectations.
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## 👤 Author
+##  Author
 
 **Soumyadeep Roy Chowdhury**
 
