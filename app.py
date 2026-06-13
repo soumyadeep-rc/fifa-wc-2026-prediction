@@ -298,13 +298,13 @@ st.markdown("""
 # SIDEBAR — MATCH CENTER
 # ==========================================
 with st.sidebar:
-    st.markdown("### Match Center")
+    st.markdown("Match Center")
     st.markdown("---")
     st.markdown("Tournament: 2026 FIFA World Cup")
     st.markdown("Hosts: USA 🇺🇸 · Mexico 🇲🇽 · Canada 🇨🇦")
     st.markdown("Field Size: 48 Nations")
     st.markdown("---")
-    st.markdown("#### Navigation Guide")
+    st.markdown("Navigation Guide")
     st.markdown("- The AI Engine — methodology & model internals")
     st.markdown("- Team Journeys — squad-by-squad scouting reports")
     st.markdown("- The Alpha Bracket — full knockout projection")
@@ -345,24 +345,24 @@ with tab_engine:
     metric_col4.metric(" Environmental Array", "Active")
 
     st.write("")
-    st.markdown("###  Operational Feature Engineering")
+    st.markdown("### Operational Feature Engineering")
 
     with st.expander(" Physical Exhaustion Index", expanded=True):
         st.write("""
-        **Mechanic:** Quantifies cross-continental aviation vectors and absolute recovery increments between matchdays.
-        **Impact:** Teams crossing multiple time zones on compressed schedules face clear performance penalties in late-game expected goal calculations compared to stationary rivals.
+        Mechanic: Quantifies cross-continental aviation vectors and absolute recovery increments between matchdays.
+        Impact: Teams crossing multiple time zones on compressed schedules face clear performance penalties in late-game expected goal calculations compared to stationary rivals.
         """)
 
-    with st.expander(" Micro-Climate & Altitude Array"):
+    with st.expander(" Micro-Climate & Altitude Array", expanded=True):
         st.write("""
-        **Mechanic:** Factors geographic stadium elevation profiles directly into player stamina depletion layers.
-        **Impact:** Teams unaccustomed to playing at high elevations show decreased late-stage efficiency, while host squads receive localized adaptation multipliers.
+        Mechanic: Factors geographic stadium elevation profiles directly into player stamina depletion layers.
+        Impact: Teams unaccustomed to playing at high elevations show decreased late-stage efficiency, while host squads receive localized adaptation multipliers.
         """)
 
-    with st.expander(" Opponent-Adjusted Momentum Metrics"):
+    with st.expander(" Opponent-Adjusted Momentum Metrics", expanded=True):
         st.write("""
-        **Mechanic:** Processes trailing historical score lines using exponentially decayed moving averages adjusted for opponent strength.
-        **Impact:** High-margin scorelines against elite competitors yield top-tier ratings. Victories over lower-tier teams are discounted to prevent ranking inflation.
+        Mechanic: Processes trailing historical score lines using exponentially decayed moving averages adjusted for opponent strength.
+        Impact: High-margin scorelines against elite competitors yield top-tier ratings. Victories over lower-tier teams are discounted to prevent ranking inflation.
         """)
 
 # ==========================================
@@ -482,6 +482,175 @@ with tab_journeys:
 with tab_bracket:
     st.header(" The Consensus Tournament Timeline")
     st.write("Deterministic progression matrix built entirely with native Streamlit data tables to ensure zero rendering errors and maximum readability.")
+    st.write("---")
+
+    # ==========================================
+    # GROUP STAGE DATA LAYER
+    # ==========================================
+    GROUPS = {
+        "Group A": ["Mexico", "South Africa", "Korea Republic", "Czechia"],
+        "Group B": ["Canada", "Bosnia-Herzegovina", "Qatar", "Switzerland"],
+        "Group C": ["United States", "Paraguay", "Australia", "Türkiye"],
+        "Group D": ["Brazil", "Morocco", "Haiti", "Scotland"],
+        "Group E": ["Germany", "Curaçao", "Côte d'Ivoire", "Ecuador"],
+        "Group F": ["Netherlands", "Japan", "Sweden", "Tunisia"],
+        "Group G": ["Belgium", "Egypt", "IR Iran", "New Zealand"],
+        "Group H": ["Spain", "Cape Verde", "Saudi Arabia", "Uruguay"],
+        "Group I": ["France", "Senegal", "Iraq", "Norway"],
+        "Group J": ["Argentina", "Algeria", "Austria", "Jordan"],
+        "Group K": ["Portugal", "Congo DR", "Uzbekistan", "Colombia"],
+        "Group L": ["England", "Croatia", "Ghana", "Panama"],
+    }
+
+    # (Date, Home_Team, Away_Team, Home_xG, Away_xG, Home_Score, Away_Score)
+    GROUP_STAGE_MATCHES = [
+        ("2026-06-11", "Mexico", "South Africa", 2.28, 0.63, 2, 1),
+        ("2026-06-11", "Korea Republic", "Czechia", 1.26, 0.96, 1, 1),
+        ("2026-06-12", "Canada", "Bosnia-Herzegovina", 2.04, 0.77, 2, 1),
+        ("2026-06-12", "United States", "Paraguay", 1.09, 1.04, 1, 1),
+        ("2026-06-13", "Qatar", "Switzerland", 0.79, 2.09, 1, 2),
+        ("2026-06-13", "Brazil", "Morocco", 1.87, 0.78, 2, 1),
+        ("2026-06-13", "Haiti", "Scotland", 1.03, 1.39, 1, 1),
+        ("2026-06-13", "Australia", "Türkiye", 2.17, 0.79, 2, 1),
+        ("2026-06-14", "Germany", "Curaçao", 3.00, 0.71, 3, 1),
+        ("2026-06-14", "Netherlands", "Japan", 1.61, 0.82, 2, 1),
+        ("2026-06-14", "Côte d'Ivoire", "Ecuador", 1.10, 1.85, 1, 2),
+        ("2026-06-14", "Sweden", "Tunisia", 1.90, 0.83, 2, 1),
+        ("2026-06-15", "Belgium", "Egypt", 2.10, 0.79, 2, 1),
+        ("2026-06-15", "Spain", "Cape Verde", 3.09, 0.64, 3, 1),
+        ("2026-06-15", "IR Iran", "New Zealand", 1.67, 0.75, 2, 1),
+        ("2026-06-15", "Saudi Arabia", "Uruguay", 0.85, 1.59, 1, 2),
+        ("2026-06-16", "France", "Senegal", 1.96, 0.83, 2, 1),
+        ("2026-06-16", "Iraq", "Norway", 0.97, 1.70, 1, 2),
+        ("2026-06-16", "Argentina", "Algeria", 2.33, 0.64, 2, 1),
+        ("2026-06-16", "Austria", "Jordan", 1.83, 0.75, 2, 1),
+        ("2026-06-17", "Portugal", "Congo DR", 2.32, 0.67, 2, 1),
+        ("2026-06-17", "England", "Croatia", 1.94, 0.72, 2, 1),
+        ("2026-06-17", "Ghana", "Panama", 1.03, 1.28, 1, 1),
+        ("2026-06-17", "Uzbekistan", "Colombia", 0.88, 1.50, 1, 2),
+        ("2026-06-18", "Czechia", "South Africa", 2.21, 0.84, 2, 1),
+        ("2026-06-18", "Switzerland", "Bosnia-Herzegovina", 2.14, 0.58, 2, 1),
+        ("2026-06-18", "Canada", "Qatar", 1.97, 0.51, 2, 1),
+        ("2026-06-18", "Mexico", "Korea Republic", 2.35, 0.84, 2, 1),
+        ("2026-06-19", "United States", "Australia", 1.29, 1.10, 1, 1),
+        ("2026-06-19", "Scotland", "Morocco", 1.30, 0.99, 1, 1),
+        ("2026-06-19", "Türkiye", "Paraguay", 1.08, 1.10, 1, 1),
+        ("2026-06-19", "Brazil", "Haiti", 2.94, 0.65, 3, 1),
+        ("2026-06-20", "Netherlands", "Sweden", 2.25, 0.50, 2, 0),
+        ("2026-06-20", "Germany", "Côte d'Ivoire", 2.12, 0.66, 2, 1),
+        ("2026-06-20", "Ecuador", "Curaçao", 2.15, 0.52, 2, 1),
+        ("2026-06-20", "Tunisia", "Japan", 0.97, 1.66, 1, 2),
+        ("2026-06-21", "Spain", "Saudi Arabia", 3.03, 0.65, 3, 1),
+        ("2026-06-21", "Belgium", "IR Iran", 2.23, 0.75, 2, 1),
+        ("2026-06-21", "Uruguay", "Cape Verde", 2.34, 0.66, 2, 1),
+        ("2026-06-21", "New Zealand", "Egypt", 1.30, 1.00, 1, 1),
+        ("2026-06-22", "Argentina", "Austria", 2.26, 0.66, 2, 1),
+        ("2026-06-22", "France", "Iraq", 2.95, 0.65, 3, 1),
+        ("2026-06-22", "Norway", "Senegal", 1.60, 0.86, 2, 1),
+        ("2026-06-22", "Jordan", "Algeria", 1.28, 0.99, 1, 1),
+        ("2026-06-23", "Portugal", "Uzbekistan", 2.21, 0.66, 2, 1),
+        ("2026-06-23", "England", "Ghana", 2.99, 0.73, 3, 1),
+        ("2026-06-23", "Panama", "Croatia", 1.01, 1.09, 1, 1),
+        ("2026-06-23", "Colombia", "Congo DR", 2.46, 0.72, 2, 1),
+        ("2026-06-24", "Switzerland", "Canada", 1.73, 1.01, 2, 1),
+        ("2026-06-24", "Bosnia-Herzegovina", "Qatar", 2.17, 0.78, 2, 1),
+        ("2026-06-24", "Scotland", "Brazil", 1.28, 1.28, 1, 1),
+        ("2026-06-24", "Morocco", "Haiti", 2.21, 0.67, 2, 1),
+        ("2026-06-24", "South Africa", "Korea Republic", 1.21, 1.05, 1, 1),
+        ("2026-06-24", "Czechia", "Mexico", 1.21, 1.02, 1, 1),
+        ("2026-06-25", "Curaçao", "Côte d'Ivoire", 1.02, 1.33, 1, 1),
+        ("2026-06-25", "Ecuador", "Germany", 1.90, 0.86, 2, 1),
+        ("2026-06-25", "Japan", "Sweden", 1.96, 0.72, 2, 1),
+        ("2026-06-25", "Tunisia", "Netherlands", 0.76, 1.83, 1, 2),
+        ("2026-06-25", "Paraguay", "Australia", 1.60, 0.83, 2, 1),
+        ("2026-06-25", "Türkiye", "United States", 1.69, 0.98, 2, 1),
+        ("2026-06-26", "Norway", "France", 1.08, 1.05, 1, 1),
+        ("2026-06-26", "Senegal", "Iraq", 2.13, 0.65, 2, 1),
+        ("2026-06-26", "Uruguay", "Spain", 1.06, 1.82, 1, 2),
+        ("2026-06-26", "Cape Verde", "Saudi Arabia", 1.45, 0.92, 1, 1),
+        ("2026-06-26", "Egypt", "IR Iran", 1.59, 0.90, 2, 1),
+        ("2026-06-26", "New Zealand", "Belgium", 0.90, 1.79, 1, 2),
+        ("2026-06-27", "Panama", "England", 0.93, 1.96, 1, 2),
+        ("2026-06-27", "Croatia", "Ghana", 2.95, 0.65, 3, 1),
+        ("2026-06-27", "Colombia", "Portugal", 1.44, 0.93, 1, 1),
+        ("2026-06-27", "Congo DR", "Uzbekistan", 1.30, 1.08, 1, 1),
+        ("2026-06-27", "Jordan", "Argentina", 0.82, 1.99, 1, 2),
+        ("2026-06-27", "Algeria", "Austria", 1.30, 0.99, 1, 1),
+    ]
+
+    def compute_group_standings(group_name):
+        """Build a sorted points table for a given group from the raw fixtures."""
+        teams = GROUPS[group_name]
+        stats = {t: {"P": 0, "W": 0, "D": 0, "L": 0, "GF": 0, "GA": 0} for t in teams}
+        for _, home, away, _, _, hs, as_ in GROUP_STAGE_MATCHES:
+            if home in teams and away in teams:
+                stats[home]["P"] += 1
+                stats[away]["P"] += 1
+                stats[home]["GF"] += hs
+                stats[home]["GA"] += as_
+                stats[away]["GF"] += as_
+                stats[away]["GA"] += hs
+                if hs > as_:
+                    stats[home]["W"] += 1
+                    stats[away]["L"] += 1
+                elif hs < as_:
+                    stats[away]["W"] += 1
+                    stats[home]["L"] += 1
+                else:
+                    stats[home]["D"] += 1
+                    stats[away]["D"] += 1
+
+        rows = []
+        for t in teams:
+            s = stats[t]
+            pts = s["W"] * 3 + s["D"]
+            gd = s["GF"] - s["GA"]
+            rows.append({"team": t, "pts": pts, "gd": gd, **s})
+
+        rows.sort(key=lambda r: (-r["pts"], -r["gd"], -r["GF"], r["team"]))
+        return rows
+
+    def render_group_standings(group_name):
+        rows = compute_group_standings(group_name)
+        qual_icon = {0: "🟢", 1: "🟢", 2: "🟡", 3: "🔴"}
+        lines = [
+            "| Pos | Team | P | W | D | L | GF | GA | GD | Pts |",
+            "| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |",
+        ]
+        for i, r in enumerate(rows):
+            lines.append(
+                f"| {qual_icon[i]} {i + 1} | **{r['team']}** | {r['P']} | {r['W']} | {r['D']} | {r['L']} | {r['GF']} | {r['GA']} | {r['gd']:+d} | **{r['pts']}** |"
+            )
+        return "\n".join(lines)
+
+    def render_group_fixtures(group_name):
+        teams = GROUPS[group_name]
+        lines = [
+            "| Date | Fixture | Score | xG (H – A) |",
+            "| :--- | :--- | :---: | :---: |",
+        ]
+        for date, home, away, hxg, axg, hs, as_ in GROUP_STAGE_MATCHES:
+            if home in teams and away in teams:
+                lines.append(f"| {date} | {home} vs {away} | **{hs} – {as_}** | {hxg:.2f} – {axg:.2f} |")
+        return "\n".join(lines)
+
+    # ==========================================
+    # GROUP STAGE SECTION
+    # ==========================================
+    st.subheader(" Group Stage")
+    st.write("All 72 simulated Group Stage fixtures across the tournament's 12 groups, with final standings, results, and Expected Goals (xG) generated by the model.")
+    st.caption("🟢 Direct knockout qualification &nbsp;·&nbsp; 🟡 Best third-place contention &nbsp;·&nbsp; 🔴 Eliminated")
+
+    group_select = st.selectbox(" Select Group:", list(GROUPS.keys()))
+
+    col_standings, col_fixtures = st.columns([1, 1])
+    with col_standings:
+        st.markdown(f"##### {group_select} — Final Standings")
+        st.markdown(render_group_standings(group_select))
+    with col_fixtures:
+        st.markdown(f"##### {group_select} — Fixtures & Results")
+        st.markdown(render_group_fixtures(group_select))
+
     st.write("---")
 
     st.subheader(" Round of 32 (16 Matches)")
